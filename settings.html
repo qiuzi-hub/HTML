@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>设置 - 堆场验箱系统</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-gray-100 h-screen flex flex-col">
+    <!-- 顶部状态栏 -->
+    <div class="bg-white px-4 py-2 flex justify-between items-center">
+        <div class="text-sm text-gray-600">9:41</div>
+        <div class="flex space-x-2">
+            <i class="fas fa-signal"></i>
+            <i class="fas fa-wifi"></i>
+            <i class="fas fa-battery-full"></i>
+        </div>
+    </div>
+    
+    <!-- 头部 - 简化 -->
+    <div class="bg-white p-3 shadow-sm">
+        <h1 class="text-lg font-bold text-gray-800">账号与设置</h1>
+    </div>
+    
+    <!-- 用户信息 - 精简化 -->
+    <div class="p-3 pb-20">
+        <div class="bg-white rounded-lg p-3 shadow-sm mb-3">
+            <div class="flex items-center">
+                <div class="w-12 h-12 bg-gray-600 rounded-full overflow-hidden flex items-center justify-center text-white mr-3">
+                    <i class="fas fa-user text-xl"></i>
+                </div>
+                <div>
+                    <h2 class="font-medium text-gray-800">张师傅</h2>
+                    <p class="text-xs text-gray-500">工号: A1234</p>
+                </div>
+                <button class="ml-auto text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-lg">
+                    修改密码
+                </button>
+            </div>
+        </div>
+        
+        <!-- 工作信息 - 新增相关信息 -->
+        <div class="bg-white rounded-lg shadow-sm mb-3">
+            <div class="flex justify-between p-3 border-b border-gray-100">
+                <span class="text-sm text-gray-500">用户角色</span>
+                <span class="text-sm text-gray-800">验箱技术员</span>
+            </div>
+            <div class="flex justify-between p-3 border-b border-gray-100">
+                <span class="text-sm text-gray-500">所属部门</span>
+                <span class="text-sm text-gray-800">维修部 - A组</span>
+            </div>
+            <div class="flex justify-between p-3">
+                <span class="text-sm text-gray-500">当前版本</span>
+                <span class="text-sm text-gray-800">v2.0.5</span>
+            </div>
+        </div>
+        
+        <!-- 基本设置 - 简化 -->
+        <div class="bg-white rounded-lg shadow-sm mb-3">
+            <div class="flex items-center justify-between p-3 border-b border-gray-100">
+                <div class="flex items-center">
+                    <i class="fas fa-bell text-gray-600 w-5 text-center mr-3"></i>
+                    <span class="text-sm text-gray-800">消息通知</span>
+                </div>
+                <label class="relative inline-flex items-center cursor-pointer">
+                    <input type="checkbox" class="sr-only peer" checked>
+                    <div class="w-9 h-5 bg-gray-200 rounded-full peer peer-checked:bg-gray-600"></div>
+                    <div class="absolute w-3 h-3 bg-white rounded-full left-1 top-1 peer-checked:left-5 transition-all"></div>
+                </label>
+            </div>
+            
+            <div class="flex items-center justify-between p-3 border-b border-gray-100">
+                <div class="flex items-center">
+                    <i class="fas fa-database text-gray-600 w-5 text-center mr-3"></i>
+                    <span class="text-sm text-gray-800">清除缓存</span>
+                </div>
+                <div class="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-lg">
+                    23.5MB
+                </div>
+            </div>
+            
+            <div class="flex items-center justify-between p-3">
+                <div class="flex items-center">
+                    <i class="fas fa-language text-gray-600 w-5 text-center mr-3"></i>
+                    <span class="text-sm text-gray-800">语言设置</span>
+                </div>
+                <div class="flex items-center">
+                    <span class="text-xs text-gray-500 mr-1">简体中文</span>
+                    <i class="fas fa-chevron-right text-gray-400 text-xs"></i>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 支持与帮助 - 简化 -->
+        <div class="bg-white rounded-lg shadow-sm mb-3">
+            <a href="#" class="flex items-center justify-between p-3 border-b border-gray-100">
+                <div class="flex items-center">
+                    <i class="fas fa-question-circle text-gray-600 w-5 text-center mr-3"></i>
+                    <span class="text-sm text-gray-800">帮助中心</span>
+                </div>
+                <i class="fas fa-chevron-right text-gray-400 text-xs"></i>
+            </a>
+            
+            <a href="#" class="flex items-center justify-between p-3 border-b border-gray-100">
+                <div class="flex items-center">
+                    <i class="fas fa-headset text-gray-600 w-5 text-center mr-3"></i>
+                    <span class="text-sm text-gray-800">联系客服</span>
+                </div>
+                <i class="fas fa-chevron-right text-gray-400 text-xs"></i>
+            </a>
+            
+            <a href="#" class="flex items-center justify-between p-3">
+                <div class="flex items-center">
+                    <i class="fas fa-info-circle text-gray-600 w-5 text-center mr-3"></i>
+                    <span class="text-sm text-gray-800">关于系统</span>
+                </div>
+                <i class="fas fa-chevron-right text-gray-400 text-xs"></i>
+            </a>
+        </div>
+        
+        <!-- 退出登录按钮 -->
+        <button class="w-full bg-gray-600 text-white py-2.5 rounded-lg font-medium shadow-md">
+            退出登录
+        </button>
+    </div>
+    
+    <!-- 底部导航 -->
+    <div class="fixed bottom-0 left-0 right-0 bg-gray-300 border-t border-gray-400 flex justify-around py-2">
+        <a href="home.html" class="flex flex-col items-center text-gray-500">
+            <i class="fas fa-home text-xl"></i>
+            <span class="text-xs mt-0.5">首页</span>
+        </a>
+        <a href="task_list.html" class="flex flex-col items-center text-gray-500">
+            <i class="fas fa-list-alt text-xl"></i>
+            <span class="text-xs mt-0.5">任务</span>
+        </a>
+        <a href="#" class="flex flex-col items-center text-gray-500">
+            <i class="fas fa-chart-bar text-xl"></i>
+            <span class="text-xs mt-0.5">统计</span>
+        </a>
+        <a href="settings.html" class="flex flex-col items-center text-gray-800">
+            <i class="fas fa-user text-xl"></i>
+            <span class="text-xs mt-0.5">我的</span>
+        </a>
+    </div>
+</body>
+</html>

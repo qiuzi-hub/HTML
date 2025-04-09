@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录 - 堆场验箱系统</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-gray-100 h-screen flex flex-col">
+    <!-- 顶部状态栏 -->
+    <div class="bg-white px-4 py-2 flex justify-between items-center">
+        <div class="text-sm text-gray-600">9:41</div>
+        <div class="flex space-x-2">
+            <i class="fas fa-signal"></i>
+            <i class="fas fa-wifi"></i>
+            <i class="fas fa-battery-full"></i>
+        </div>
+    </div>
+    
+    <div class="flex-1 flex flex-col justify-center px-8">
+        <div class="mb-10 text-center">
+            <div class="w-20 h-20 rounded-xl mx-auto mb-4 overflow-hidden bg-gray-600 flex items-center justify-center text-white text-3xl">
+                <i class="fas fa-boxes"></i>
+            </div>
+            <h1 class="text-2xl font-bold text-gray-800">堆场验箱系统</h1>
+            <p class="text-sm text-gray-500">快速高效地完成验箱工作</p>
+        </div>
+        
+        <div class="space-y-4">
+            <div class="bg-white rounded-xl p-4 shadow-sm">
+                <div class="flex items-center border-b border-gray-200 pb-2">
+                    <i class="fas fa-user text-gray-400 mr-3"></i>
+                    <input type="text" placeholder="工号" class="w-full outline-none text-gray-700">
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-xl p-4 shadow-sm">
+                <div class="flex items-center border-b border-gray-200 pb-2">
+                    <i class="fas fa-lock text-gray-400 mr-3"></i>
+                    <input type="password" placeholder="密码" class="w-full outline-none text-gray-700">
+                    <i class="fas fa-eye-slash text-gray-400"></i>
+                </div>
+            </div>
+            
+            <button class="w-full bg-gray-600 text-white py-3 rounded-xl font-medium shadow-md mt-4">
+                登 录
+            </button>
+            
+            <div class="flex justify-between items-center px-1 text-sm">
+                <div class="flex items-center">
+                    <input type="checkbox" id="remember" class="mr-2">
+                    <label for="remember" class="text-gray-600">记住密码</label>
+                </div>
+                <a href="#" class="text-gray-600">忘记密码?</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="text-center text-xs text-gray-400 py-4">
+        版本 2.0.0 © 2023 堆场验箱系统
+    </div>
+</body>
+</html> 

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>损坏详情 - 堆场验箱系统</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-gray-100 h-screen flex flex-col">
+    <!-- 顶部状态栏 -->
+    <div class="bg-white px-4 py-2 flex justify-between items-center">
+        <div class="text-sm text-gray-600">9:41</div>
+        <div class="flex space-x-2">
+            <i class="fas fa-signal"></i>
+            <i class="fas fa-wifi"></i>
+            <i class="fas fa-battery-full"></i>
+        </div>
+    </div>
+    
+    <!-- 头部 -->
+    <div class="bg-white p-4 shadow-sm flex items-center">
+        <a href="entry_inspection.html" class="mr-4">
+            <i class="fas fa-arrow-left text-gray-600"></i>
+        </a>
+        <h1 class="text-lg font-medium text-gray-800">损坏详情</h1>
+    </div>
+    
+    <!-- 损坏详情内容 -->
+    <div class="p-3 overflow-auto pb-28">
+        <!-- 损坏信息 -->
+        <div class="bg-white rounded-lg p-4 shadow-sm mb-3">
+            <h2 class="text-base font-medium text-gray-800 mb-3">损坏信息</h2>
+            
+            <div class="space-y-3">
+                <!-- 部件选择 -->
+                <div class="flex items-center border-b border-gray-100 pb-2">
+                    <div class="w-20 text-sm text-gray-500">部件</div>
+                    <div class="flex-1">
+                        <span class="text-sm text-gray-700" id="part-display"></span>
+                    </div>
+                </div>
+                
+                <!-- 损坏类型选择 -->
+                <div class="flex items-center border-b border-gray-100 pb-2">
+                    <div class="w-20 text-sm text-gray-500">损坏类型</div>
+                    <div class="flex-1">
+                        <span class="text-sm text-gray-700" id="damage-display"></span>
+                    </div>
+                </div>
+                
+                <!-- 损坏位置选择 -->
+                <div class="flex items-center border-b border-gray-100 pb-2">
+                    <div class="w-20 text-sm text-gray-500">损坏位置</div>
+                    <div class="flex-1 flex flex-wrap gap-2" id="damage-positions">
+                        <!-- 位置选项将通过JavaScript动态添加 -->
+                    </div>
+                </div>
+                
+                <!-- 新旧口选择 -->
+                <div class="flex items-center border-b border-gray-100 pb-2">
+                    <div class="w-20 text-sm text-gray-500">新旧口</div>
+                    <div class="flex-1 flex space-x-4">
+                        <div class="px-2 py-1 rounded border border-gray-150 cursor-pointer new-old-option flex-1 text-center" data-value="new">
+                            <span class="text-sm text-gray-700">新</span>
+                        </div>
+                        <div class="px-2 py-1 rounded border border-gray-150 cursor-pointer new-old-option flex-1 text-center" data-value="old">
+                            <span class="text-sm text-gray-700">旧</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 数量输入 -->
+                <div class="flex items-center border-b border-gray-100 pb-2">
+                    <div class="w-20 text-sm text-gray-500">数量</div>
+                    <input type="number" min="1" placeholder="输入数量" class="flex-1 outline-none text-sm text-gray-700 p-1 border border-gray-200 rounded">
+                </div>
+                
+                <!-- 长度输入 -->
+                <div class="flex items-center border-b border-gray-100 pb-2">
+                    <div class="w-20 text-sm text-gray-500">长度(cm)</div>
+                    <input type="number" min="0" step="0.1" placeholder="输入长度" class="flex-1 outline-none text-sm text-gray-700 p-1 border border-gray-200 rounded">
+                </div>
+                
+                <!-- 宽度输入 -->
+                <div class="flex items-center border-b border-gray-100 pb-2">
+                    <div class="w-20 text-sm text-gray-500">宽度(cm)</div>
+                    <input type="number" min="0" step="0.1" placeholder="输入宽度" class="flex-1 outline-none text-sm text-gray-700 p-1 border border-gray-200 rounded">
+                </div>
+            </div>
+        </div>
+        
+        <!-- 照片上传 -->
+        <div class="bg-white rounded-lg p-4 shadow-sm mb-3">
+            <h2 class="text-base font-medium text-gray-800 mb-3">照片上传</h2>
+            
+            <div class="grid grid-cols-3 gap-2">
+                <div class="aspect-square bg-gray-100 rounded flex items-center justify-center border border-dashed border-gray-300 cursor-pointer hover:bg-gray-50">
+                    <i class="fas fa-plus text-gray-400"></i>
+                </div>
+                <div class="aspect-square bg-gray-200 rounded overflow-hidden">
+                    <div class="w-full h-full flex items-center justify-center text-gray-400">
+                        <i class="fas fa-image text-xl"></i>
+                    </div>
+                </div>
+                <div class="aspect-square bg-gray-200 rounded overflow-hidden">
+                    <div class="w-full h-full flex items-center justify-center text-gray-400">
+                        <i class="fas fa-image text-xl"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flex justify-center mt-3">
+                <button class="bg-gray-600 text-white px-4 py-2 rounded text-xs flex items-center hover:bg-gray-700">
+                    <i class="fas fa-camera mr-2"></i> 拍照上传
+                </button>
+            </div>
+        </div>
+        
+        <!-- 备注 -->
+        <div class="bg-white rounded-lg p-4 shadow-sm mb-3">
+            <h2 class="text-base font-medium text-gray-800 mb-2">备注</h2>
+            <textarea placeholder="输入其他需要说明的情况..." class="w-full p-2 border border-gray-200 rounded text-sm h-20"></textarea>
+        </div>
+    </div>
+    
+    <!-- 底部导航和操作按钮 -->
+    <div class="fixed bottom-0 left-0 right-0">
+        <!-- 操作按钮 -->
+        <div class="bg-white border-t border-gray-200 p-3 flex space-x-2">
+            <button class="flex-1 bg-gray-200 text-gray-700 py-2 rounded font-medium text-sm">
+                取消
+            </button>
+            <button class="flex-1 bg-gray-600 text-white py-2 rounded font-medium text-sm">
+                保存
+            </button>
+        </div>
+        
+        <!-- 底部导航 -->
+        <div class="bg-gray-300 border-t border-gray-400 flex justify-around py-2">
+            <a href="home.html" class="flex flex-col items-center text-gray-500">
+                <i class="fas fa-home text-xl"></i>
+                <span class="text-xs mt-0.5">首页</span>
+            </a>
+            <a href="task_list.html" class="flex flex-col items-center text-gray-500">
+                <i class="fas fa-list-alt text-xl"></i>
+                <span class="text-xs mt-0.5">任务</span>
+            </a>
+            <a href="#" class="flex flex-col items-center text-gray-500">
+                <i class="fas fa-chart-bar text-xl"></i>
+                <span class="text-xs mt-0.5">统计</span>
+            </a>
+            <a href="settings.html" class="flex flex-col items-center text-gray-500">
+                <i class="fas fa-user text-xl"></i>
+                <span class="text-xs mt-0.5">我的</span>
+            </a>
+        </div>
+    </div>
+    
+    <script>
+        // 获取URL参数
+        function getUrlParams() {
+            const params = {};
+            const queryString = window.location.search.substring(1);
+            const pairs = queryString.split('&');
+            
+            for (const pair of pairs) {
+                const [key, value] = pair.split('=');
+                if (key && value) {
+                    params[key] = decodeURIComponent(value);
+                }
+            }
+            
+            return params;
+        }
+        
+        // 初始化页面
+        document.addEventListener('DOMContentLoaded', function() {
+            const params = getUrlParams();
+            
+            // 设置部件和损坏类型显示
+            if (params.part) {
+                document.getElementById('part-display').textContent = params.part;
+            }
+            
+            if (params.damage) {
+                document.getElementById('damage-display').textContent = params.damage;
+            }
+            
+            // 根据部件和损坏类型设置损坏位置选项
+            const part = params.part;
+            const damage = params.damage;
+            
+            let positions = [];
+            if (part.includes('门槽C-槽')) {
+                positions = ['DB2N', 'DT2N'];
+            } else if (part.includes('门框')) {
+                positions = ['DB2N', 'DT2N', 'DX2N'];
+            } else if (part.includes('门旁')) {
+                positions = ['DB2N', 'DT2N', 'DX2N'];
+            } else if (part.includes('地板')) {
+                positions = ['地板前', '地板中', '地板后'];
+            } else if (part.includes('侧板')) {
+                positions = ['侧板前', '侧板中', '侧板后'];
+            } else if (part.includes('冰柜')) {
+                positions = ['冰柜前', '冰柜中', '冰柜后'];
+            } else if (part.includes('开顶')) {
+                positions = ['开顶前', '开顶中', '开顶后'];
+            }
+            
+            // 更新位置选项
+            const positionsContainer = document.getElementById('damage-positions');
+            positionsContainer.innerHTML = '';
+            positions.forEach(position => {
+                const positionBtn = document.createElement('div');
+                positionBtn.className = 'px-2 py-1 rounded border border-gray-150 cursor-pointer position-option text-center hover:bg-gray-50';
+                positionBtn.setAttribute('data-position', position);
+                positionBtn.innerHTML = `<span class="text-sm text-gray-700">${position}</span>`;
+                positionsContainer.appendChild(positionBtn);
+            });
+            
+            // 位置选择逻辑
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('.position-option')) {
+                    const option = e.target.closest('.position-option');
+                    document.querySelectorAll('.position-option').forEach(opt => {
+                        opt.classList.remove('bg-gray-200');
+                    });
+                    option.classList.add('bg-gray-200');
+                }
+            });
+            
+            // 新旧口选择逻辑
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('.new-old-option')) {
+                    const option = e.target.closest('.new-old-option');
+                    document.querySelectorAll('.new-old-option').forEach(opt => {
+                        opt.classList.remove('bg-gray-200');
+                    });
+                    option.classList.add('bg-gray-200');
+                }
+            });
+            
+            // 保存按钮点击事件
+            document.querySelector('.bg-gray-600').addEventListener('click', function() {
+                // 获取选中的位置
+                const selectedPosition = document.querySelector('.position-option.bg-gray-200');
+                const position = selectedPosition ? selectedPosition.getAttribute('data-position') : '';
+                
+                // 获取选中的新旧口
+                const selectedNewOld = document.querySelector('.new-old-option.bg-gray-200');
+                const newOld = selectedNewOld ? selectedNewOld.getAttribute('data-value') : '';
+                
+                // 获取数量、长度、宽度
+                const quantity = document.querySelector('input[placeholder="输入数量"]').value;
+                const length = document.querySelector('input[placeholder="输入长度"]').value;
+                const width = document.querySelector('input[placeholder="输入宽度"]').value;
+                
+                // 获取备注
+                const remarks = document.querySelector('textarea').value;
+                
+                // 在实际应用中，这里应该发送数据到服务器
+                console.log('保存损坏详情:', {
+                    part: params.part,
+                    damage: params.damage,
+                    position: position,
+                    newOld: newOld,
+                    quantity: quantity,
+                    length: length,
+                    width: width,
+                    remarks: remarks
+                });
+                
+                // 返回上一页
+                window.location.href = 'entry_inspection.html';
+            });
+            
+            // 取消按钮点击事件
+            document.querySelector('.bg-gray-200').addEventListener('click', function() {
+                window.location.href = 'entry_inspection.html';
+            });
+        });
+    </script>
+</body>
+</html> 

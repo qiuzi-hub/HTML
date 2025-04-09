@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>底部损坏详情 - 堆场验箱系统</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .damage-option.active {
+            background-color: #f3f4f6;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 h-screen flex flex-col">
+    <!-- 顶部状态栏 -->
+    <div class="bg-white px-4 py-2 flex justify-between items-center">
+        <div class="text-sm text-gray-600">9:41</div>
+        <div class="flex space-x-2">
+            <i class="fas fa-signal"></i>
+            <i class="fas fa-wifi"></i>
+            <i class="fas fa-battery-full"></i>
+        </div>
+    </div>
+    
+    <!-- 头部 -->
+    <div class="bg-white p-4 shadow-sm flex items-center">
+        <a href="entry_inspection.html" class="mr-4">
+            <i class="fas fa-arrow-left text-gray-600"></i>
+        </a>
+        <h1 class="text-xl font-bold text-gray-800">底部损坏详情</h1>
+    </div>
+    
+    <!-- 搜索框 -->
+    <div class="p-4 bg-white">
+        <div class="flex items-center border border-gray-200 rounded-lg p-2">
+            <i class="fas fa-search text-gray-400 mr-2"></i>
+            <input type="text" placeholder="搜索损坏类型" class="flex-1 outline-none text-gray-700 text-sm" id="search-input">
+        </div>
+    </div>
+    
+    <!-- 损坏类型列表 -->
+    <div class="flex-1 overflow-auto">
+        <div class="p-4">
+            <!-- 底梁 -->
+            <div id="bottom-beams" class="bg-white rounded-xl shadow-sm mb-4 damage-section">
+                <div class="p-3 border-b border-gray-100 text-sm font-medium text-gray-800">
+                    底梁
+                </div>
+                
+                <!-- 门底梁 -->
+                <div class="p-3 border-b border-gray-100">
+                    <h2 class="text-base font-medium text-gray-800">门底梁</h2>
+                    <div class="grid grid-cols-2 gap-2 mt-2">
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="门底梁" data-damage="破烂">
+                            <span class="text-gray-800">破烂</span>
+                        </div>
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="门底梁" data-damage="向外凸">
+                            <span class="text-gray-800">向外凸</span>
+                        </div>
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="门底梁" data-damage="裂缝">
+                            <span class="text-gray-800">裂缝</span>
+                        </div>
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="门底梁" data-damage="霉烂">
+                            <span class="text-gray-800">霉烂</span>
+                        </div>
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="门底梁" data-damage="变形">
+                            <span class="text-gray-800">变形</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 前底梁 -->
+                <div class="p-3 border-b border-gray-100">
+                    <h2 class="text-base font-medium text-gray-800">前底梁</h2>
+                    <div class="grid grid-cols-2 gap-2 mt-2">
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="前底梁" data-damage="破烂">
+                            <span class="text-gray-800">破烂</span>
+                        </div>
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="前底梁" data-damage="向外凸">
+                            <span class="text-gray-800">向外凸</span>
+                        </div>
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="前底梁" data-damage="裂缝">
+                            <span class="text-gray-800">裂缝</span>
+                        </div>
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="前底梁" data-damage="霉烂">
+                            <span class="text-gray-800">霉烂</span>
+                        </div>
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="前底梁" data-damage="凹损">
+                            <span class="text-gray-800">凹损</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 左底梁 -->
+                <div class="p-3 border-b border-gray-100">
+                    <h2 class="text-base font-medium text-gray-800">左底梁</h2>
+                    <div class="grid grid-cols-2 gap-2 mt-2">
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="左底梁" data-damage="破烂">
+                            <span class="text-gray-800">破烂</span>
+                        </div>
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="左底梁" data-damage="向外凸">
+                            <span class="text-gray-800">向外凸</span>
+                        </div>
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="左底梁" data-damage="裂缝">
+                            <span class="text-gray-800">裂缝</span>
+                        </div>
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="左底梁" data-damage="霉烂">
+                            <span class="text-gray-800">霉烂</span>
+                        </div>
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="左底梁" data-damage="凹损">
+                            <span class="text-gray-800">凹损</span>
+                        </div>
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="左底梁" data-damage="变形">
+                            <span class="text-gray-800">变形</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 右底梁 -->
+                <div class="p-3 border-b border-gray-100">
+                    <h2 class="text-base font-medium text-gray-800">右底梁</h2>
+                    <div class="grid grid-cols-2 gap-2 mt-2">
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="右底梁" data-damage="破烂">
+                            <span class="text-gray-800">破烂</span>
+                        </div>
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="右底梁" data-damage="向外凸">
+                            <span class="text-gray-800">向外凸</span>
+                        </div>
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="右底梁" data-damage="裂缝">
+                            <span class="text-gray-800">裂缝</span>
+                        </div>
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="右底梁" data-damage="霉烂">
+                            <span class="text-gray-800">霉烂</span>
+                        </div>
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="右底梁" data-damage="凹损">
+                            <span class="text-gray-800">凹损</span>
+                        </div>
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="右底梁" data-damage="变形">
+                            <span class="text-gray-800">变形</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 底横梁 -->
+                <div class="p-3 border-b border-gray-100">
+                    <h2 class="text-base font-medium text-gray-800">底横梁</h2>
+                    <div class="grid grid-cols-2 gap-2 mt-2">
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="底横梁" data-damage="破烂">
+                            <span class="text-gray-800">破烂</span>
+                        </div>
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="底横梁" data-damage="凹损">
+                            <span class="text-gray-800">凹损</span>
+                        </div>
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="底横梁" data-damage="变形">
+                            <span class="text-gray-800">变形</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 短底梁 -->
+                <div class="p-3">
+                    <h2 class="text-base font-medium text-gray-800">短底梁</h2>
+                    <div class="grid grid-cols-2 gap-2 mt-2">
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="短底梁" data-damage="破烂">
+                            <span class="text-gray-800">破烂</span>
+                        </div>
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="短底梁" data-damage="向外凸">
+                            <span class="text-gray-800">向外凸</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 铲袋结构 -->
+            <div id="forklift-pocket" class="bg-white rounded-xl shadow-sm mb-4 damage-section">
+                <div class="p-3 border-b border-gray-100 text-sm font-medium text-gray-800">
+                    铲袋结构
+                </div>
+                
+                <!-- 铲袋阵 -->
+                <div class="p-3 border-b border-gray-100">
+                    <h2 class="text-base font-medium text-gray-800">铲袋阵</h2>
+                    <div class="grid grid-cols-2 gap-2 mt-2">
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="铲袋阵" data-damage="破烂">
+                            <span class="text-gray-800">破烂</span>
+                        </div>
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="铲袋阵" data-damage="向外凸">
+                            <span class="text-gray-800">向外凸</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 左边隧道阵 -->
+                <div class="p-3 border-b border-gray-100">
+                    <h2 class="text-base font-medium text-gray-800">左边隧道阵</h2>
+                    <div class="grid grid-cols-2 gap-2 mt-2">
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="左边隧道阵" data-damage="破烂">
+                            <span class="text-gray-800">破烂</span>
+                        </div>
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="左边隧道阵" data-damage="向外凸">
+                            <span class="text-gray-800">向外凸</span>
+                        </div>
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="左边隧道阵" data-damage="霉烂">
+                            <span class="text-gray-800">霉烂</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 右边遂道阵 -->
+                <div class="p-3 border-b border-gray-100">
+                    <h2 class="text-base font-medium text-gray-800">右边遂道阵</h2>
+                    <div class="grid grid-cols-2 gap-2 mt-2">
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="右边遂道阵" data-damage="破烂">
+                            <span class="text-gray-800">破烂</span>
+                        </div>
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="右边遂道阵" data-damage="向外凸">
+                            <span class="text-gray-800">向外凸</span>
+                        </div>
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="右边遂道阵" data-damage="霉烂">
+                            <span class="text-gray-800">霉烂</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 铲袋结构 -->
+                <div class="p-3 border-b border-gray-100">
+                    <h2 class="text-base font-medium text-gray-800">铲袋结构</h2>
+                    <div class="grid grid-cols-2 gap-2 mt-2">
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="铲袋结构" data-damage="破烂">
+                            <span class="text-gray-800">破烂</span>
+                        </div>
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="铲袋结构" data-damage="向外凸">
+                            <span class="text-gray-800">向外凸</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 铲袋顶铁 -->
+                <div class="p-3 border-b border-gray-100">
+                    <h2 class="text-base font-medium text-gray-800">铲袋顶铁</h2>
+                    <div class="grid grid-cols-2 gap-2 mt-2">
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="铲袋顶铁" data-damage="变形">
+                            <span class="text-gray-800">变形</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 左边铲袋铁 -->
+                <div class="p-3 border-b border-gray-100">
+                    <h2 class="text-base font-medium text-gray-800">左边铲袋铁</h2>
+                    <div class="grid grid-cols-2 gap-2 mt-2">
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="左边铲袋铁" data-damage="向外凸">
+                            <span class="text-gray-800">向外凸</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 右边铲袋铁 -->
+                <div class="p-3">
+                    <h2 class="text-base font-medium text-gray-800">右边铲袋铁</h2>
+                    <div class="grid grid-cols-2 gap-2 mt-2">
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="右边铲袋铁" data-damage="向外凸">
+                            <span class="text-gray-800">向外凸</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 加强结构 -->
+            <div id="reinforcements" class="bg-white rounded-xl shadow-sm mb-4 damage-section">
+                <div class="p-3 border-b border-gray-100 text-sm font-medium text-gray-800">
+                    加强结构
+                </div>
+                
+                <!-- 鹅颈阵 -->
+                <div class="p-3 border-b border-gray-100">
+                    <h2 class="text-base font-medium text-gray-800">鹅颈阵</h2>
+                    <div class="grid grid-cols-2 gap-2 mt-2">
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="鹅颈阵" data-damage="向外凸">
+                            <span class="text-gray-800">向外凸</span>
+                        </div>
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="鹅颈阵" data-damage="霉烂">
+                            <span class="text-gray-800">霉烂</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- C型加力铁 -->
+                <div class="p-3 border-b border-gray-100">
+                    <h2 class="text-base font-medium text-gray-800">C型加力铁</h2>
+                    <div class="grid grid-cols-2 gap-2 mt-2">
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="C型加力铁" data-damage="破烂">
+                            <span class="text-gray-800">破烂</span>
+                        </div>
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="C型加力铁" data-damage="向外凸">
+                            <span class="text-gray-800">向外凸</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 防撞C型槽钢 -->
+                <div class="p-3 border-b border-gray-100">
+                    <h2 class="text-base font-medium text-gray-800">防撞C型槽钢</h2>
+                    <div class="grid grid-cols-2 gap-2 mt-2">
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="防撞C型槽钢" data-damage="破烂">
+                            <span class="text-gray-800">破烂</span>
+                        </div>
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="防撞C型槽钢" data-damage="向外凸">
+                            <span class="text-gray-800">向外凸</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 梁加强板(三角虎) -->
+                <div class="p-3 border-b border-gray-100">
+                    <h2 class="text-base font-medium text-gray-800">梁加强板(三角虎)</h2>
+                    <div class="grid grid-cols-2 gap-2 mt-2">
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="梁加强板(三角虎)" data-damage="破烂">
+                            <span class="text-gray-800">破烂</span>
+                        </div>
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="梁加强板(三角虎)" data-damage="向外凸">
+                            <span class="text-gray-800">向外凸</span>
+                        </div>
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="梁加强板(三角虎)" data-damage="凹损">
+                            <span class="text-gray-800">凹损</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 底阵加力铁 -->
+                <div class="p-3 border-b border-gray-100">
+                    <h2 class="text-base font-medium text-gray-800">底阵加力铁</h2>
+                    <div class="grid grid-cols-2 gap-2 mt-2">
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="底阵加力铁" data-damage="凹损">
+                            <span class="text-gray-800">凹损</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 龙骨 -->
+                <div class="p-3">
+                    <h2 class="text-base font-medium text-gray-800">龙骨</h2>
+                    <div class="grid grid-cols-2 gap-2 mt-2">
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="龙骨" data-damage="破烂">
+                            <span class="text-gray-800">破烂</span>
+                        </div>
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="龙骨" data-damage="向外凸">
+                            <span class="text-gray-800">向外凸</span>
+                        </div>
+                        <div class="p-2 border border-gray-200 rounded text-center text-sm cursor-pointer damage-option" data-part="龙骨" data-damage="变形">
+                            <span class="text-gray-800">变形</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 底部导航 -->
+    <div class="fixed bottom-0 left-0 right-0 bg-gray-300 border-t border-gray-400 flex justify-around py-2">
+        <a href="home.html" class="flex flex-col items-center text-gray-500">
+            <i class="fas fa-home text-xl"></i>
+            <span class="text-xs mt-0.5">首页</span>
+        </a>
+        <a href="task_list.html" class="flex flex-col items-center text-gray-500">
+            <i class="fas fa-list-alt text-xl"></i>
+            <span class="text-xs mt-0.5">任务</span>
+        </a>
+        <a href="#" class="flex flex-col items-center text-gray-500">
+            <i class="fas fa-chart-bar text-xl"></i>
+            <span class="text-xs mt-0.5">统计</span>
+        </a>
+        <a href="settings.html" class="flex flex-col items-center text-gray-500">
+            <i class="fas fa-user text-xl"></i>
+            <span class="text-xs mt-0.5">我的</span>
+        </a>
+    </div>
+    
+    <script>
+        // 初始化页面
+        document.addEventListener('DOMContentLoaded', function() {
+            // 为所有损坏类型选项添加点击事件
+            document.querySelectorAll('.damage-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    const part = this.getAttribute('data-part');
+                    const damage = this.getAttribute('data-damage');
+                    
+                    // 跳转到损坏详情页面
+                    window.location.href = `damage_detail.html?part=${encodeURIComponent(part)}&damage=${encodeURIComponent(damage)}`;
+                });
+            });
+            
+            // 搜索功能
+            const searchInput = document.getElementById('search-input');
+            if (searchInput) {
+                searchInput.addEventListener('input', function() {
+                    const searchTerm = this.value.toLowerCase();
+                    
+                    // 对每个部件进行搜索
+                    document.querySelectorAll('.damage-section').forEach(section => {
+                        let sectionVisible = false;
+                        const sectionTitle = section.querySelector('.text-sm.font-medium').textContent.toLowerCase();
+                        
+                        // 如果搜索词匹配部件大类，则显示整个部件
+                        if (sectionTitle.includes(searchTerm)) {
+                            sectionVisible = true;
+                        } else {
+                            // 检查每个子部件
+                            const partTitles = section.querySelectorAll('h2');
+                            partTitles.forEach(title => {
+                                const parentDiv = title.closest('div');
+                                const titleText = title.textContent.toLowerCase();
+                                const damageTexts = Array.from(parentDiv.querySelectorAll('.damage-option span')).map(span => span.textContent.toLowerCase());
+                                
+                                // 如果搜索词匹配部件名称或任何损坏类型
+                                const partMatch = titleText.includes(searchTerm) || damageTexts.some(text => text.includes(searchTerm));
+                                
+                                if (partMatch) {
+                                    sectionVisible = true;
+                                    parentDiv.style.display = 'block';
+                                } else {
+                                    parentDiv.style.display = 'none';
+                                }
+                            });
+                        }
+                        
+                        section.style.display = sectionVisible ? 'block' : 'none';
+                    });
+                });
+            }
+            
+            // 自动滚动到页面指定位置（如果URL中包含锚点）
+            if (window.location.hash) {
+                const targetElement = document.getElementById(window.location.hash.substring(1));
+                if (targetElement) {
+                    setTimeout(function() {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }, 300);
+                }
+            }
+        });
+    </script>
+</body>
+</html> 
